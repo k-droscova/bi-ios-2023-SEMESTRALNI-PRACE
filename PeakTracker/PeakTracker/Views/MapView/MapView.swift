@@ -1,0 +1,39 @@
+//
+//  MapView.swift
+//  PeakTracker
+//
+//  Created by Karolína Droscová on 11.12.2023.
+//
+
+import SwiftUI
+import SwiftData
+import _MapKit_SwiftUI
+
+struct MapView: View {
+    @State private var viewModel: ViewModel
+    
+    init(modelContext: ModelContext) {
+        let viewModel = ViewModel(modelContext: modelContext)
+        _viewModel = State(initialValue: viewModel)
+    }
+    
+    var body: some View {
+        Map(selection: $viewModel.selection) {
+            ForEach(viewModel.mountains) { mountain in
+                Marker(mountain.name, systemImage: "mountain.2.fill", coordinate: mountain.coordinates)
+            }
+        }
+        .sheet(isPresented: $viewModel.isPresented, onDismiss:
+                {
+            viewModel.dismiss()
+        }, content: {
+            viewModel.presentMountainDetails()
+                .onAppear{viewModel.fetchData()}
+        })
+        .onChange(of: viewModel.selection) {
+            viewModel.present()
+        }
+        .onAppear{viewModel.fetchData()}
+        .mapStyle(.hybrid)
+    }
+}

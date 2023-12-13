@@ -1,0 +1,597 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2746BE9D2B2850AA00979ECD /* AllTripsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746BE9C2B2850AA00979ECD /* AllTripsViewModel.swift */; };
+		2746BE9F2B28560100979ECD /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746BE9E2B28560100979ECD /* MapViewModel.swift */; };
+		2746BEA12B2860CD00979ECD /* MapMountainSheetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746BEA02B2860CD00979ECD /* MapMountainSheetModel.swift */; };
+		27AE51252B273088004DC3DA /* PeakTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE51242B273088004DC3DA /* PeakTrackerApp.swift */; };
+		27AE51272B273088004DC3DA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE51262B273088004DC3DA /* ContentView.swift */; };
+		27AE512B2B273089004DC3DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27AE512A2B273089004DC3DA /* Assets.xcassets */; };
+		27AE512E2B273089004DC3DA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27AE512D2B273089004DC3DA /* Preview Assets.xcassets */; };
+		27AE51362B2730D4004DC3DA /* AddTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE51352B2730D4004DC3DA /* AddTripView.swift */; };
+		27AE51382B2730E5004DC3DA /* AddTripViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE51372B2730E5004DC3DA /* AddTripViewModel.swift */; };
+		27AE513B2B27314A004DC3DA /* Mountain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE513A2B27314A004DC3DA /* Mountain.swift */; };
+		27AE513D2B2732B1004DC3DA /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE513C2B2732B1004DC3DA /* Trip.swift */; };
+		27AE513F2B273426004DC3DA /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE513E2B273426004DC3DA /* Weather.swift */; };
+		27AE51412B273D02004DC3DA /* Seasons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE51402B273D02004DC3DA /* Seasons.swift */; };
+		27AE51432B273E24004DC3DA /* TripDifficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE51422B273E24004DC3DA /* TripDifficulty.swift */; };
+		27AE51452B273F18004DC3DA /* TripRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE51442B273F18004DC3DA /* TripRating.swift */; };
+		27AE51472B27403D004DC3DA /* TripDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE51462B27403D004DC3DA /* TripDuration.swift */; };
+		27AE514A2B2742E6004DC3DA /* TimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE51492B2742E6004DC3DA /* TimePicker.swift */; };
+		27AE514D2B2744D5004DC3DA /* DisplayTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE514C2B2744D5004DC3DA /* DisplayTripView.swift */; };
+		27AE51522B274886004DC3DA /* MountainDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE51512B274886004DC3DA /* MountainDetailView.swift */; };
+		27AE51552B2797CC004DC3DA /* DifficultyPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE51542B2797CC004DC3DA /* DifficultyPicker.swift */; };
+		27AE51572B2798D5004DC3DA /* RatingPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE51562B2798D5004DC3DA /* RatingPicker.swift */; };
+		27AE51592B279A7A004DC3DA /* WeatherPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE51582B279A7A004DC3DA /* WeatherPicker.swift */; };
+		27AE515D2B279B82004DC3DA /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE515C2B279B82004DC3DA /* DatePicker.swift */; };
+		27AE51612B279E8D004DC3DA /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE51602B279E8D004DC3DA /* SearchView.swift */; };
+		27AE51632B279E9C004DC3DA /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE51622B279E9C004DC3DA /* SearchViewModel.swift */; };
+		27AE51652B279EFA004DC3DA /* MountainSearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE51642B279EFA004DC3DA /* MountainSearchResultView.swift */; };
+		27AE51672B27A997004DC3DA /* DisplayTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE51662B27A997004DC3DA /* DisplayTextView.swift */; };
+		27AE516C2B27B202004DC3DA /* DisplayImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE516B2B27B202004DC3DA /* DisplayImageView.swift */; };
+		27AE516E2B27BAB9004DC3DA /* ImageSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE516D2B27BAB9004DC3DA /* ImageSliderView.swift */; };
+		27AE51722B27BEEF004DC3DA /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE51712B27BEEF004DC3DA /* MapView.swift */; };
+		27AE51752B27C2F2004DC3DA /* AllTripsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE51742B27C2F2004DC3DA /* AllTripsView.swift */; };
+		27AE51772B27C3A1004DC3DA /* TripListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE51762B27C3A1004DC3DA /* TripListView.swift */; };
+		27AE51792B27D72B004DC3DA /* MapMountainSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE51782B27D72B004DC3DA /* MapMountainSheetView.swift */; };
+		27FACD362B288DB700CF8141 /* EditTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FACD352B288DB700CF8141 /* EditTripView.swift */; };
+		27FACD382B288DC400CF8141 /* EditTripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FACD372B288DC400CF8141 /* EditTripModel.swift */; };
+		27FACD3B2B28C47F00CF8141 /* Caveat-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27FACD3A2B28C47F00CF8141 /* Caveat-VariableFont_wght.ttf */; };
+		27FACD422B28DEF100CF8141 /* CenterModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FACD412B28DEF100CF8141 /* CenterModifier.swift */; };
+		27FACD442B28E18900CF8141 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FACD432B28E18900CF8141 /* UIImageExtensions.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2746BE9C2B2850AA00979ECD /* AllTripsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTripsViewModel.swift; sourceTree = "<group>"; };
+		2746BE9E2B28560100979ECD /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		2746BEA02B2860CD00979ECD /* MapMountainSheetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMountainSheetModel.swift; sourceTree = "<group>"; };
+		27AE51212B273088004DC3DA /* PeakTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeakTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		27AE51242B273088004DC3DA /* PeakTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeakTrackerApp.swift; sourceTree = "<group>"; };
+		27AE51262B273088004DC3DA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		27AE512A2B273089004DC3DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		27AE512D2B273089004DC3DA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		27AE51352B2730D4004DC3DA /* AddTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripView.swift; sourceTree = "<group>"; };
+		27AE51372B2730E5004DC3DA /* AddTripViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripViewModel.swift; sourceTree = "<group>"; };
+		27AE513A2B27314A004DC3DA /* Mountain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mountain.swift; sourceTree = "<group>"; };
+		27AE513C2B2732B1004DC3DA /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		27AE513E2B273426004DC3DA /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		27AE51402B273D02004DC3DA /* Seasons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seasons.swift; sourceTree = "<group>"; };
+		27AE51422B273E24004DC3DA /* TripDifficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDifficulty.swift; sourceTree = "<group>"; };
+		27AE51442B273F18004DC3DA /* TripRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripRating.swift; sourceTree = "<group>"; };
+		27AE51462B27403D004DC3DA /* TripDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDuration.swift; sourceTree = "<group>"; };
+		27AE51492B2742E6004DC3DA /* TimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePicker.swift; sourceTree = "<group>"; };
+		27AE514C2B2744D5004DC3DA /* DisplayTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTripView.swift; sourceTree = "<group>"; };
+		27AE51512B274886004DC3DA /* MountainDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainDetailView.swift; sourceTree = "<group>"; };
+		27AE51542B2797CC004DC3DA /* DifficultyPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyPicker.swift; sourceTree = "<group>"; };
+		27AE51562B2798D5004DC3DA /* RatingPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingPicker.swift; sourceTree = "<group>"; };
+		27AE51582B279A7A004DC3DA /* WeatherPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPicker.swift; sourceTree = "<group>"; };
+		27AE515C2B279B82004DC3DA /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
+		27AE51602B279E8D004DC3DA /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		27AE51622B279E9C004DC3DA /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		27AE51642B279EFA004DC3DA /* MountainSearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainSearchResultView.swift; sourceTree = "<group>"; };
+		27AE51662B27A997004DC3DA /* DisplayTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTextView.swift; sourceTree = "<group>"; };
+		27AE516B2B27B202004DC3DA /* DisplayImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayImageView.swift; sourceTree = "<group>"; };
+		27AE516D2B27BAB9004DC3DA /* ImageSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSliderView.swift; sourceTree = "<group>"; };
+		27AE51712B27BEEF004DC3DA /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		27AE51742B27C2F2004DC3DA /* AllTripsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTripsView.swift; sourceTree = "<group>"; };
+		27AE51762B27C3A1004DC3DA /* TripListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListView.swift; sourceTree = "<group>"; };
+		27AE51782B27D72B004DC3DA /* MapMountainSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMountainSheetView.swift; sourceTree = "<group>"; };
+		27FACD352B288DB700CF8141 /* EditTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTripView.swift; sourceTree = "<group>"; };
+		27FACD372B288DC400CF8141 /* EditTripModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTripModel.swift; sourceTree = "<group>"; };
+		27FACD3A2B28C47F00CF8141 /* Caveat-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Caveat-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		27FACD412B28DEF100CF8141 /* CenterModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterModifier.swift; sourceTree = "<group>"; };
+		27FACD432B28E18900CF8141 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		27AE511E2B273088004DC3DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		27AE51182B273088004DC3DA = {
+			isa = PBXGroup;
+			children = (
+				27AE51232B273088004DC3DA /* PeakTracker */,
+				27AE51222B273088004DC3DA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		27AE51222B273088004DC3DA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				27AE51212B273088004DC3DA /* PeakTracker.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		27AE51232B273088004DC3DA /* PeakTracker */ = {
+			isa = PBXGroup;
+			children = (
+				27FACD392B28C42400CF8141 /* Assets */,
+				27AE515E2B279E63004DC3DA /* Views */,
+				27AE51482B2742A3004DC3DA /* Helpers */,
+				27AE51392B273132004DC3DA /* Models */,
+				27AE51242B273088004DC3DA /* PeakTrackerApp.swift */,
+				27AE51262B273088004DC3DA /* ContentView.swift */,
+				27AE512A2B273089004DC3DA /* Assets.xcassets */,
+				27AE512C2B273089004DC3DA /* Preview Content */,
+			);
+			path = PeakTracker;
+			sourceTree = "<group>";
+		};
+		27AE512C2B273089004DC3DA /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				27AE512D2B273089004DC3DA /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		27AE51342B2730BE004DC3DA /* AddTrip */ = {
+			isa = PBXGroup;
+			children = (
+				27AE51372B2730E5004DC3DA /* AddTripViewModel.swift */,
+				27AE51352B2730D4004DC3DA /* AddTripView.swift */,
+			);
+			path = AddTrip;
+			sourceTree = "<group>";
+		};
+		27AE51392B273132004DC3DA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				27AE513A2B27314A004DC3DA /* Mountain.swift */,
+				27AE513C2B2732B1004DC3DA /* Trip.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		27AE51482B2742A3004DC3DA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				27FACD3C2B28DEA600CF8141 /* Views */,
+				27FACD3E2B28DEC500CF8141 /* ViewModifiers */,
+				27FACD3D2B28DEB300CF8141 /* Enums */,
+				27AE51532B276090004DC3DA /* Pickers */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		27AE514B2B2744B8004DC3DA /* DisplayTrip */ = {
+			isa = PBXGroup;
+			children = (
+				27AE514C2B2744D5004DC3DA /* DisplayTripView.swift */,
+			);
+			path = DisplayTrip;
+			sourceTree = "<group>";
+		};
+		27AE51532B276090004DC3DA /* Pickers */ = {
+			isa = PBXGroup;
+			children = (
+				27AE51492B2742E6004DC3DA /* TimePicker.swift */,
+				27AE51542B2797CC004DC3DA /* DifficultyPicker.swift */,
+				27AE51562B2798D5004DC3DA /* RatingPicker.swift */,
+				27AE51582B279A7A004DC3DA /* WeatherPicker.swift */,
+				27AE515C2B279B82004DC3DA /* DatePicker.swift */,
+			);
+			path = Pickers;
+			sourceTree = "<group>";
+		};
+		27AE515E2B279E63004DC3DA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				27AE515F2B279E74004DC3DA /* SearchMountain */,
+				27AE51342B2730BE004DC3DA /* AddTrip */,
+				27FACD342B288DA300CF8141 /* EditTrip */,
+				27AE514B2B2744B8004DC3DA /* DisplayTrip */,
+				27AE51732B27C2D8004DC3DA /* AllTrips */,
+				27AE516F2B27BED7004DC3DA /* MapView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		27AE515F2B279E74004DC3DA /* SearchMountain */ = {
+			isa = PBXGroup;
+			children = (
+				27AE51602B279E8D004DC3DA /* SearchView.swift */,
+				27AE51622B279E9C004DC3DA /* SearchViewModel.swift */,
+			);
+			path = SearchMountain;
+			sourceTree = "<group>";
+		};
+		27AE516F2B27BED7004DC3DA /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				27AE51712B27BEEF004DC3DA /* MapView.swift */,
+				2746BE9E2B28560100979ECD /* MapViewModel.swift */,
+				27AE51782B27D72B004DC3DA /* MapMountainSheetView.swift */,
+				2746BEA02B2860CD00979ECD /* MapMountainSheetModel.swift */,
+			);
+			path = MapView;
+			sourceTree = "<group>";
+		};
+		27AE51732B27C2D8004DC3DA /* AllTrips */ = {
+			isa = PBXGroup;
+			children = (
+				27AE51742B27C2F2004DC3DA /* AllTripsView.swift */,
+				2746BE9C2B2850AA00979ECD /* AllTripsViewModel.swift */,
+				27AE51762B27C3A1004DC3DA /* TripListView.swift */,
+			);
+			path = AllTrips;
+			sourceTree = "<group>";
+		};
+		27FACD342B288DA300CF8141 /* EditTrip */ = {
+			isa = PBXGroup;
+			children = (
+				27FACD352B288DB700CF8141 /* EditTripView.swift */,
+				27FACD372B288DC400CF8141 /* EditTripModel.swift */,
+			);
+			path = EditTrip;
+			sourceTree = "<group>";
+		};
+		27FACD392B28C42400CF8141 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				27FACD3A2B28C47F00CF8141 /* Caveat-VariableFont_wght.ttf */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		27FACD3C2B28DEA600CF8141 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				27AE516B2B27B202004DC3DA /* DisplayImageView.swift */,
+				27AE51662B27A997004DC3DA /* DisplayTextView.swift */,
+				27AE51642B279EFA004DC3DA /* MountainSearchResultView.swift */,
+				27AE516D2B27BAB9004DC3DA /* ImageSliderView.swift */,
+				27AE51512B274886004DC3DA /* MountainDetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		27FACD3D2B28DEB300CF8141 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				27AE513E2B273426004DC3DA /* Weather.swift */,
+				27AE51402B273D02004DC3DA /* Seasons.swift */,
+				27AE51422B273E24004DC3DA /* TripDifficulty.swift */,
+				27AE51442B273F18004DC3DA /* TripRating.swift */,
+				27AE51462B27403D004DC3DA /* TripDuration.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		27FACD3E2B28DEC500CF8141 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				27FACD412B28DEF100CF8141 /* CenterModifier.swift */,
+				27FACD432B28E18900CF8141 /* UIImageExtensions.swift */,
+			);
+			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		27AE51202B273088004DC3DA /* PeakTracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27AE51312B273089004DC3DA /* Build configuration list for PBXNativeTarget "PeakTracker" */;
+			buildPhases = (
+				27AE511D2B273088004DC3DA /* Sources */,
+				27AE511E2B273088004DC3DA /* Frameworks */,
+				27AE511F2B273088004DC3DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PeakTracker;
+			productName = PeakTracker;
+			productReference = 27AE51212B273088004DC3DA /* PeakTracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		27AE51192B273088004DC3DA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					27AE51202B273088004DC3DA = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+				};
+			};
+			buildConfigurationList = 27AE511C2B273088004DC3DA /* Build configuration list for PBXProject "PeakTracker" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 27AE51182B273088004DC3DA;
+			productRefGroup = 27AE51222B273088004DC3DA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				27AE51202B273088004DC3DA /* PeakTracker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		27AE511F2B273088004DC3DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27AE512E2B273089004DC3DA /* Preview Assets.xcassets in Resources */,
+				27AE512B2B273089004DC3DA /* Assets.xcassets in Resources */,
+				27FACD3B2B28C47F00CF8141 /* Caveat-VariableFont_wght.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		27AE511D2B273088004DC3DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2746BE9F2B28560100979ECD /* MapViewModel.swift in Sources */,
+				27AE51632B279E9C004DC3DA /* SearchViewModel.swift in Sources */,
+				27AE51592B279A7A004DC3DA /* WeatherPicker.swift in Sources */,
+				27AE514A2B2742E6004DC3DA /* TimePicker.swift in Sources */,
+				27FACD362B288DB700CF8141 /* EditTripView.swift in Sources */,
+				27AE513F2B273426004DC3DA /* Weather.swift in Sources */,
+				27AE51552B2797CC004DC3DA /* DifficultyPicker.swift in Sources */,
+				27AE51752B27C2F2004DC3DA /* AllTripsView.swift in Sources */,
+				27AE51272B273088004DC3DA /* ContentView.swift in Sources */,
+				27AE51772B27C3A1004DC3DA /* TripListView.swift in Sources */,
+				2746BEA12B2860CD00979ECD /* MapMountainSheetModel.swift in Sources */,
+				27AE51382B2730E5004DC3DA /* AddTripViewModel.swift in Sources */,
+				27AE51432B273E24004DC3DA /* TripDifficulty.swift in Sources */,
+				27AE51252B273088004DC3DA /* PeakTrackerApp.swift in Sources */,
+				27AE516E2B27BAB9004DC3DA /* ImageSliderView.swift in Sources */,
+				27AE51472B27403D004DC3DA /* TripDuration.swift in Sources */,
+				2746BE9D2B2850AA00979ECD /* AllTripsViewModel.swift in Sources */,
+				27AE51412B273D02004DC3DA /* Seasons.swift in Sources */,
+				27AE51612B279E8D004DC3DA /* SearchView.swift in Sources */,
+				27AE513B2B27314A004DC3DA /* Mountain.swift in Sources */,
+				27FACD382B288DC400CF8141 /* EditTripModel.swift in Sources */,
+				27AE516C2B27B202004DC3DA /* DisplayImageView.swift in Sources */,
+				27AE51672B27A997004DC3DA /* DisplayTextView.swift in Sources */,
+				27AE51522B274886004DC3DA /* MountainDetailView.swift in Sources */,
+				27AE51722B27BEEF004DC3DA /* MapView.swift in Sources */,
+				27AE51572B2798D5004DC3DA /* RatingPicker.swift in Sources */,
+				27AE51792B27D72B004DC3DA /* MapMountainSheetView.swift in Sources */,
+				27FACD442B28E18900CF8141 /* UIImageExtensions.swift in Sources */,
+				27AE51452B273F18004DC3DA /* TripRating.swift in Sources */,
+				27AE513D2B2732B1004DC3DA /* Trip.swift in Sources */,
+				27AE51362B2730D4004DC3DA /* AddTripView.swift in Sources */,
+				27AE514D2B2744D5004DC3DA /* DisplayTripView.swift in Sources */,
+				27FACD422B28DEF100CF8141 /* CenterModifier.swift in Sources */,
+				27AE51652B279EFA004DC3DA /* MountainSearchResultView.swift in Sources */,
+				27AE515D2B279B82004DC3DA /* DatePicker.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		27AE512F2B273089004DC3DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		27AE51302B273089004DC3DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		27AE51322B273089004DC3DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PeakTracker/Preview Content\"";
+				DEVELOPMENT_TEAM = 84HX6FUFDK;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = cz.fit.cvut.PeakTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		27AE51332B273089004DC3DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PeakTracker/Preview Content\"";
+				DEVELOPMENT_TEAM = 84HX6FUFDK;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = cz.fit.cvut.PeakTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		27AE511C2B273088004DC3DA /* Build configuration list for PBXProject "PeakTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27AE512F2B273089004DC3DA /* Debug */,
+				27AE51302B273089004DC3DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27AE51312B273089004DC3DA /* Build configuration list for PBXNativeTarget "PeakTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27AE51322B273089004DC3DA /* Debug */,
+				27AE51332B273089004DC3DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 27AE51192B273088004DC3DA /* Project object */;
+}
