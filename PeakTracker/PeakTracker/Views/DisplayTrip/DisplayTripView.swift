@@ -51,12 +51,12 @@ struct DisplayTripView: View {
         }
         .navigationBarItems(trailing:
                                 
-        NavigationLink {
+                                NavigationLink {
             EditTripView(trip: trip, modelContext: self.modelContext)
         } label: {
             Text("Edit")
         })
-
+        
     }
     
     func getHikingBuddies() -> String {
@@ -70,7 +70,7 @@ struct DisplayTripView: View {
         formatter.timeZone = TimeZone.current
         return formatter.string(from: date)
     }
-                                
+    
     func formatTime(time: TripDuration) -> String {
         return String(Int(time.hourSelection)) + " h " + String(Int(time.minuteSelection)) + " min "
     }
@@ -78,7 +78,7 @@ struct DisplayTripView: View {
     mutating func reload(){
         trip = modelContext.model(for: self.trip.persistentModelID) as! Trip
     }
-
+    
     
     struct SliderTabView: View {
         var trip: Trip
@@ -88,60 +88,49 @@ struct DisplayTripView: View {
             UIPageControl.appearance().pageIndicatorTintColor = UIColor.red.withAlphaComponent(0.2)
         }
         func createImage(_ value: Data) -> Image {
-        #if canImport(UIKit)
+#if canImport(UIKit)
             let songArtwork: UIImage = UIImage(data: value) ?? UIImage()
             return Image(uiImage: songArtwork)
-        #elseif canImport(AppKit)
+#elseif canImport(AppKit)
             let songArtwork: NSImage = NSImage(data: value) ?? NSImage()
             return Image(nsImage: songArtwork)
-        #else
+#else
             return Image(systemImage: "some_default")
-        #endif
+#endif
         }
         var body: some View {
-            /*if trip.images.isEmpty {
-                EmptyView()
-                    .frame(width: UIScreen.main.bounds.size.width, height: 370)
-            }
-            else {*/
-                TabView {
-                    ForEach(trip.images, id: \.self) { image in
-                        createImage(image)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(
-                                width: UIScreen.main.bounds.size.width, // NOTE, this is not a good idea if we want to use landscape orientation or if the screen proportions will not be exactly to our preview model
-                                height: 300
-                            )
-                            .clipped()
-                    }
+            TabView {
+                ForEach(trip.images, id: \.self) { image in
+                    createImage(image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(
+                            width: UIScreen.main.bounds.size.width, // NOTE, this is not a good idea if we want to use landscape orientation or if the screen proportions will not be exactly to our preview model
+                            height: 300
+                        )
+                        .clipped()
                 }
-                .frame(height: 370)
-                .tabViewStyle(
-                    PageTabViewStyle(indexDisplayMode: .automatic) // shows scrollbar only if there are at least 2 photos
-                )
-            //}
+            }
+            .frame(height: 370)
+            .tabViewStyle(
+                PageTabViewStyle(indexDisplayMode: .automatic) // shows scrollbar only if there are at least 2 photos
+            )
         }
-                          
+        
     }
-                          
-                          
+    
+    
 }
 
-/*
 #Preview {
-    DisplayTripView(trip: Trip.tripMock1)
-}
-*/
-
-/*#Preview {
     do {
-        let config1 = ModelConfiguration(for: Trip.self)
-        let config2 = ModelConfiguration(for: Mountain.self)
-        let container = try ModelContainer(for: Trip.self, Mountain.self, configurations: config1, config2)
+        let config = ModelConfiguration(for: Trip.self, isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Trip.self, configurations: config)
+        let modelContext = container.mainContext
+        modelContext.insert(Trip.tripMock1)
         return DisplayTripView(trip: Trip.tripMock1)
-            .modelContainer(container)
+            .modelContext(modelContext)
     } catch {
         fatalError("Failed to create model container.")
     }
-}*/
+}

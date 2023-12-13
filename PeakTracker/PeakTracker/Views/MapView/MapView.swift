@@ -38,3 +38,15 @@ struct MapView: View {
         .mapStyle(.hybrid)
     }
 }
+
+
+ #Preview {
+     do {
+         let config = ModelConfiguration(for: Trip.self, isStoredInMemoryOnly: true)
+         let container = try ModelContainer(for: Trip.self, configurations: config)
+         return MapView(modelContext: container.mainContext)
+     } catch {
+         fatalError("Failed to create model container.")
+     }
+ }
+ 

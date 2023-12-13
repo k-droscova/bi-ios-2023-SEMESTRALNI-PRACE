@@ -59,8 +59,14 @@ struct AllTripsView: View {
     }
 }
 
-/*
+
  #Preview {
- AllTripsView()
+     do {
+         let config = ModelConfiguration(for: Trip.self, isStoredInMemoryOnly: true)
+         let container = try ModelContainer(for: Trip.self, configurations: config)
+         return AllTripsView(modelContext: container.mainContext)
+     } catch {
+         fatalError("Failed to create model container.")
+     }
  }
- */
+ 

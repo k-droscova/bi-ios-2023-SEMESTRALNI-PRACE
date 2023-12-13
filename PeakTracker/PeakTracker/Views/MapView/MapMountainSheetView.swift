@@ -64,3 +64,16 @@ struct MapMountainSheetView: View {
 /*#Preview {
     MapMountainSheetView(mountain: Mountain.mountainMock1)
 }*/
+
+ #Preview {
+     do {
+         let config = ModelConfiguration(for: Trip.self, isStoredInMemoryOnly: true)
+         let container = try ModelContainer(for: Trip.self, configurations: config)
+         let modelContext = container.mainContext
+         modelContext.insert(Trip.tripMock1)
+         return MapMountainSheetView(modelContext: modelContext, mountain: Mountain.mountainMock1)
+     } catch {
+         fatalError("Failed to create model container.")
+     }
+ }
+ 

@@ -68,6 +68,27 @@ struct TripListView: View {
     }
 }
 
-#Preview {
-    TripListView(sort: SortDescriptor(\Trip.date), searchString: "")
-}
+
+ #Preview {
+     do {
+         let config = ModelConfiguration(for: Trip.self, isStoredInMemoryOnly: true)
+         let container = try ModelContainer(for: Trip.self, configurations: config)
+         let modelContext = container.mainContext
+         modelContext.insert(Trip.tripMock1)
+         modelContext.insert(Trip.tripMock2)
+         modelContext.insert(Trip.tripMock3)
+         modelContext.insert(Trip.tripMock4)
+         modelContext.insert(Trip.tripMock5)
+         modelContext.insert(Trip.tripMock6)
+         modelContext.insert(Trip.tripMock7)
+         modelContext.insert(Trip.tripMock8)
+         modelContext.insert(Trip.tripMock9)
+         modelContext.insert(Trip.tripMock10)
+         modelContext.insert(Trip.tripMock11)
+         modelContext.insert(Trip.tripMock12)
+         return TripListView(sort: SortDescriptor(\Trip.date), searchString: "")
+                    .modelContainer(container)
+     } catch {
+         fatalError("Failed to create model container.")
+     }
+ }

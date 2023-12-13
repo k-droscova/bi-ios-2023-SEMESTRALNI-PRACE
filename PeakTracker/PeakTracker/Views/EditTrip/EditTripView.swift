@@ -94,7 +94,15 @@ struct EditTripView: View {
     }
 }
 
-/*#Preview {
- EditTripView()
- }
- */
+#Preview {
+    do {
+        let config = ModelConfiguration(for: Trip.self, isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Trip.self, configurations: config)
+        let modelContext = container.mainContext
+        let trip = Trip.tripMock1
+        modelContext.insert(trip)
+        return EditTripView(trip: trip, modelContext: modelContext)
+    } catch {
+        fatalError("Failed to create model container.")
+    }
+}
