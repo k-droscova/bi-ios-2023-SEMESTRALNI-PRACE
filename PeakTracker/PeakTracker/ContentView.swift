@@ -28,14 +28,21 @@ struct ContentView: View {
                     )
                 }
         }
-        .onAppear(perform: {
+        /*.onAppear(perform: {
             try? modelContext.delete(model: Trip.self)
             try? modelContext.delete(model: Mountain.self)
-        })
+        })*/
     }
 
 }
 
-/*#Preview {
-    ContentView()
-}*/
+ #Preview {
+     do {
+         let config = ModelConfiguration(for: Trip.self, isStoredInMemoryOnly: true)
+         let container = try ModelContainer(for: Trip.self, configurations: config)
+         return ContentView()
+                    .modelContainer(container)
+     } catch {
+         fatalError("Failed to create model container.")
+     }
+ }
