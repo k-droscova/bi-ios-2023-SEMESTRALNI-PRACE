@@ -11,6 +11,7 @@ import _MapKit_SwiftUI
 
 struct MapView: View {
     @State private var viewModel: ViewModel
+    @State private var position: MapCameraPosition = .userLocation(fallback: .automatic)
     
     init(modelContext: ModelContext) {
         let viewModel = ViewModel(modelContext: modelContext)
@@ -18,7 +19,7 @@ struct MapView: View {
     }
     
     var body: some View {
-        Map(selection: $viewModel.selection) {
+        Map(initialPosition: viewModel.initialPosition, selection: $viewModel.selection) {
             ForEach(viewModel.mountains) { mountain in
                 Marker(mountain.name, systemImage: "mountain.2.fill", coordinate: mountain.coordinates)
             }

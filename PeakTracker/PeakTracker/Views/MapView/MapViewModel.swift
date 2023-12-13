@@ -8,10 +8,14 @@
 import Foundation
 import SwiftUI
 import SwiftData
+import _MapKit_SwiftUI
 
 extension MapView {
     @Observable
     class ViewModel {
+        let PragueRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 50.073658, longitude: 14.418540), span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
+        let initialEmptyPosition: MapCameraPosition = .userLocation(fallback: .region(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 50.073658, longitude: 14.418540), span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))))
+        var initialPosition: MapCameraPosition = .automatic
         var selection: String?
         var isPresented: Bool = false
         var modelContext: ModelContext
@@ -21,6 +25,13 @@ extension MapView {
         init(modelContext: ModelContext) {
             self.modelContext = modelContext
             fetchData()
+            if let coordinates = trips.first?.mountain?.coordinates {
+                let region = MKCoordinateRegion(center: coordinates, span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
+                self.initialPosition = .region(region)
+            }
+            else {
+                self.initialPosition = initialEmptyPosition
+            }
         }
         
         func dismiss() {
