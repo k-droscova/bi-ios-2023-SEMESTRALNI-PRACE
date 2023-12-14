@@ -35,7 +35,7 @@ extension AddTripView {
         var selectedItems = [PhotosPickerItem]()
         var selectedImages = [Data]()
         var fetchingImages: Bool = false
-
+        
         
         // FOR DISPLAYING ALERT
         var errorWithSaving: Bool = false
@@ -64,30 +64,6 @@ extension AddTripView {
             return Season.Winter
         }
         
-        func displayImages() -> some View {
-            Group {
-                if !selectedImages.isEmpty {
-                    VStack {
-                        Group {
-                            if fetchingImages {
-                                ProgressView()
-                                    .progressViewStyle(.circular)
-                                    .frame(width: 300, height: 370)
-                                    .modifier(CenterModifier())
-                            }
-                            else {
-                                ImageSliderView(images: selectedImages)
-                            }
-                        }
-                        Button {
-                            self.deleteImages()
-                        } label: {
-                            Text("Delete All Images")
-                        }
-                    }
-                }
-            }
-        }
         
         func deleteImages() {
             selectedImages.removeAll()
@@ -130,14 +106,20 @@ extension AddTripView {
         
         func save() {
             if validateInputs() {
-                let trip = Trip(mountain: mountain!, date: date, time: time, startingPoint: startingPoint, maxHeight: mountain!.elevation, hikingBuddies: hikingBuddies, details: details, weather: weather!, season: season!, difficulty: difficulty!, rating: rating!, images: selectedImages)
-                //let mnt = try? modelContext.fetch(FetchDescriptor<Mountain>(self.mountain.id))
-                /*let fetchDescriptor = FetchDescriptor<Mountain>(
-                        predicate: #Predicate {
-                            $0.persistentModelID == self.mountain?.persistentModelID
-                    })
-                let mnt = try? modelContext.fetch(fetchDescriptor)
-                */
+                let trip = Trip(
+                    mountain: mountain!,
+                    date: date,
+                    time: time,
+                    startingPoint: startingPoint,
+                    maxHeight: mountain!.elevation,
+                    hikingBuddies: hikingBuddies,
+                    details: details,
+                    weather: weather!,
+                    season: season!,
+                    difficulty: difficulty!,
+                    rating: rating!,
+                    images: selectedImages
+                )
                 modelContext.insert(trip)
                 try? modelContext.save()
                 goBack = true
@@ -175,8 +157,8 @@ extension AddTripView {
                     message: Text("Must select mountain"),
                     dismissButton:  Alert.Button.default(Text("OK"), action: {
                         self.errorWithSaving = false
-                     })
-                 )
+                    })
+                )
             }
             else if weather == nil {
                 return Alert(
@@ -184,8 +166,8 @@ extension AddTripView {
                     message: Text("Must select weather"),
                     dismissButton:  Alert.Button.default(Text("OK"), action: {
                         self.errorWithSaving = false
-                     })
-                 )
+                    })
+                )
             }
             else if season == nil {
                 return Alert(
@@ -193,8 +175,8 @@ extension AddTripView {
                     message: Text("Must select season"),
                     dismissButton:  Alert.Button.default(Text("OK"), action: {
                         self.errorWithSaving = false
-                     })
-                 )
+                    })
+                )
             }
             else if difficulty == nil {
                 return Alert(
@@ -202,8 +184,8 @@ extension AddTripView {
                     message: Text("Must select difficulty"),
                     dismissButton:  Alert.Button.default(Text("OK"), action: {
                         self.errorWithSaving = false
-                     })
-                 )
+                    })
+                )
             }
             else {
                 return Alert(
@@ -211,8 +193,8 @@ extension AddTripView {
                     message: Text("Must select rating"),
                     dismissButton:  Alert.Button.default(Text("OK"), action: {
                         self.errorWithSaving = false
-                     })
-                 )
+                    })
+                )
             }
         }
     }

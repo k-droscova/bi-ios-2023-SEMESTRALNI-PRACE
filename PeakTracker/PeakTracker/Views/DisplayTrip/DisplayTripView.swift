@@ -88,15 +88,8 @@ struct DisplayTripView: View {
             UIPageControl.appearance().pageIndicatorTintColor = UIColor.red.withAlphaComponent(0.2)
         }
         func createImage(_ value: Data) -> Image {
-#if canImport(UIKit)
-            let songArtwork: UIImage = UIImage(data: value) ?? UIImage()
-            return Image(uiImage: songArtwork)
-#elseif canImport(AppKit)
-            let songArtwork: NSImage = NSImage(data: value) ?? NSImage()
-            return Image(nsImage: songArtwork)
-#else
-            return Image(systemImage: "some_default")
-#endif
+            let img: UIImage = UIImage(data: value) ?? UIImage()
+            return Image(uiImage: img)
         }
         var body: some View {
             TabView {

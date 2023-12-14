@@ -24,6 +24,7 @@ extension MapMountainSheetView {
             fetchData()
         }
         
+        
         func fetchData() {
             do {
                 trips = try modelContext.fetch(FetchDescriptor<Trip>()).filter(#Predicate<Trip> { trip in
@@ -49,7 +50,6 @@ extension MapMountainSheetView {
                 modelContext.delete(trip)
                 try? modelContext.save()
             }
-            fetchData()
         }
     }
 }

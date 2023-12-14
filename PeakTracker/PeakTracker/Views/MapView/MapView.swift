@@ -28,14 +28,34 @@ struct MapView: View {
                 {
             viewModel.dismiss()
         }, content: {
-            viewModel.presentMountainDetails()
-                .onAppear{viewModel.fetchData()}
+            presentMountainDetails()
         })
         .onChange(of: viewModel.selection) {
             viewModel.present()
         }
         .onAppear{viewModel.fetchData()}
         .mapStyle(.hybrid)
+    }
+    
+    
+    func presentMountainDetails() -> some View {
+        Group {
+            if let mountain = viewModel.mountains.first(where: { $0.id == viewModel.selection })
+            {
+                MapMountainSheetView(modelContext: viewModel.modelContext, mountain: mountain)
+                    .padding(.top, 16)
+                    .onAppear(perform: {
+                        viewModel.reload()
+                    })
+            }
+            else {
+                VStack{}
+                    .onAppear(perform: {
+                        viewModel.reload()
+                        viewModel.dismiss()
+                    })
+            }
+        }
     }
 }
 

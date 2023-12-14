@@ -23,23 +23,15 @@ struct MapMountainSheetView: View {
     var body: some View {
         MountainDetailView(mountain: mountain)
             .font(.headline)
-        NavigationSplitView {
+        NavigationStack {
             List(selection: $viewModel.selection) {
                 ForEach(viewModel.trips) { trip in
-                    NavigationLink(value: trip) {
+                    NavigationLink(destination: DisplayTripView(displayHeader: false, trip: trip)) {
                         Text(formatDate(date:trip.date))
                             .font(.headline)
                     }
                 }
                 .onDelete(perform: viewModel.deleteTrips)
-            }
-            
-            
-        } detail: {
-            if let trip = viewModel.selection {
-                DisplayTripView(displayHeader: false, trip: trip)
-            } else {
-                Text("Tap for details")
             }
         }
         .onAppear(perform: {
@@ -60,10 +52,6 @@ struct MapMountainSheetView: View {
         return formatter.string(from: date)
     }
 }
-
-/*#Preview {
-    MapMountainSheetView(mountain: Mountain.mountainMock1)
-}*/
 
  #Preview {
      do {

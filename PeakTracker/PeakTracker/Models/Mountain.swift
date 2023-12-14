@@ -17,7 +17,7 @@ final class Mountain: Identifiable, Decodable, Hashable, Equatable, ObservableOb
     }
         
     public static func == (lhs: Mountain, rhs: Mountain) -> Bool {
-        return /*lhs.name == rhs.name ||*/ lhs.id == rhs.id
+        return lhs.id == rhs.id
     }
     
     enum CodingKeys: String, CodingKey {

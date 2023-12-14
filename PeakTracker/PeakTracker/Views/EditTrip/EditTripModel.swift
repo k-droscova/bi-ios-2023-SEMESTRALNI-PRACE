@@ -58,31 +58,6 @@ extension EditTripView {
             // TODO make selected items represent selected images in photosPicker
         }
         
-        func displayImages() -> some View {
-            Group {
-                if !selectedImages.isEmpty {
-                    VStack {
-                        Group {
-                            if fetchingImages {
-                                ProgressView()
-                                    .progressViewStyle(.circular)
-                                    .frame(width: 300, height: 370)
-                                    .modifier(CenterModifier())
-                            }
-                            else {
-                                ImageSliderView(images: selectedImages)
-                            }
-                        }
-                        Button {
-                            self.deleteImages()
-                        } label: {
-                            Text("Delete All Images")
-                        }
-                    }
-                }
-            }
-        }
-        
         func deleteImages() {
             selectedImages.removeAll()
         }

@@ -32,7 +32,7 @@ struct AddTripView: View {
             Section("Photos") {
                 PhotosPicker("Select Images", selection: $viewModel.selectedItems, matching: .any(of: [.images, .not(.videos)]))
                     .modifier(CenterModifier())
-                viewModel.displayImages()
+                displayImages()
             }
             .listRowSeparator(.hidden)
 
@@ -99,6 +99,31 @@ struct AddTripView: View {
             if viewModel.goBack {
                 viewModel.restore()
                 self.presentationMode.wrappedValue.dismiss()
+            }
+        }
+    }
+    
+    func displayImages() -> some View {
+        Group {
+            if !viewModel.selectedImages.isEmpty {
+                VStack {
+                    Group {
+                        if viewModel.fetchingImages {
+                            ProgressView()
+                                .progressViewStyle(.circular)
+                                .frame(width: 300, height: 370)
+                                .modifier(CenterModifier())
+                        }
+                        else {
+                            ImageSliderView(images: viewModel.selectedImages)
+                        }
+                    }
+                    Button {
+                        viewModel.deleteImages()
+                    } label: {
+                        Text("Delete All Images")
+                    }
+                }
             }
         }
     }
