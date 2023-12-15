@@ -40,11 +40,12 @@
 		27AE51752B27C2F2004DC3DA /* AllTripsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE51742B27C2F2004DC3DA /* AllTripsView.swift */; };
 		27AE51772B27C3A1004DC3DA /* TripListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE51762B27C3A1004DC3DA /* TripListView.swift */; };
 		27AE51792B27D72B004DC3DA /* MapMountainSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE51782B27D72B004DC3DA /* MapMountainSheetView.swift */; };
+		27ECC70A2B2C6B3F00DC1A98 /* FlagFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ECC7092B2C6B3F00DC1A98 /* FlagFunction.swift */; };
 		27FACD362B288DB700CF8141 /* EditTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FACD352B288DB700CF8141 /* EditTripView.swift */; };
 		27FACD382B288DC400CF8141 /* EditTripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FACD372B288DC400CF8141 /* EditTripModel.swift */; };
 		27FACD3B2B28C47F00CF8141 /* Caveat-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27FACD3A2B28C47F00CF8141 /* Caveat-VariableFont_wght.ttf */; };
 		27FACD422B28DEF100CF8141 /* CenterModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FACD412B28DEF100CF8141 /* CenterModifier.swift */; };
-		27FACD442B28E18900CF8141 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FACD432B28E18900CF8141 /* UIImageExtensions.swift */; };
+		27FACD442B28E18900CF8141 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FACD432B28E18900CF8141 /* UIImageExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,11 +83,12 @@
 		27AE51742B27C2F2004DC3DA /* AllTripsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTripsView.swift; sourceTree = "<group>"; };
 		27AE51762B27C3A1004DC3DA /* TripListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListView.swift; sourceTree = "<group>"; };
 		27AE51782B27D72B004DC3DA /* MapMountainSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMountainSheetView.swift; sourceTree = "<group>"; };
+		27ECC7092B2C6B3F00DC1A98 /* FlagFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagFunction.swift; sourceTree = "<group>"; };
 		27FACD352B288DB700CF8141 /* EditTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTripView.swift; sourceTree = "<group>"; };
 		27FACD372B288DC400CF8141 /* EditTripModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTripModel.swift; sourceTree = "<group>"; };
 		27FACD3A2B28C47F00CF8141 /* Caveat-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Caveat-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		27FACD412B28DEF100CF8141 /* CenterModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterModifier.swift; sourceTree = "<group>"; };
-		27FACD432B28E18900CF8141 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
+		27FACD432B28E18900CF8141 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 		27AE51482B2742A3004DC3DA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				27ECC70B2B2C6BFE00DC1A98 /* Extensions&Other */,
 				27FACD3C2B28DEA600CF8141 /* Views */,
 				27FACD3E2B28DEC500CF8141 /* ViewModifiers */,
 				27FACD3D2B28DEB300CF8141 /* Enums */,
@@ -231,6 +234,15 @@
 			path = AllTrips;
 			sourceTree = "<group>";
 		};
+		27ECC70B2B2C6BFE00DC1A98 /* Extensions&Other */ = {
+			isa = PBXGroup;
+			children = (
+				27ECC7092B2C6B3F00DC1A98 /* FlagFunction.swift */,
+				27FACD432B28E18900CF8141 /* UIImageExtension.swift */,
+			);
+			path = "Extensions&Other";
+			sourceTree = "<group>";
+		};
 		27FACD342B288DA300CF8141 /* EditTrip */ = {
 			isa = PBXGroup;
 			children = (
@@ -276,7 +288,6 @@
 			isa = PBXGroup;
 			children = (
 				27FACD412B28DEF100CF8141 /* CenterModifier.swift */,
-				27FACD432B28E18900CF8141 /* UIImageExtensions.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -365,6 +376,7 @@
 				2746BEA12B2860CD00979ECD /* MapMountainSheetModel.swift in Sources */,
 				27AE51382B2730E5004DC3DA /* AddTripViewModel.swift in Sources */,
 				27AE51432B273E24004DC3DA /* TripDifficulty.swift in Sources */,
+				27ECC70A2B2C6B3F00DC1A98 /* FlagFunction.swift in Sources */,
 				27AE51252B273088004DC3DA /* PeakTrackerApp.swift in Sources */,
 				27AE516E2B27BAB9004DC3DA /* ImageSliderView.swift in Sources */,
 				27AE51472B27403D004DC3DA /* TripDuration.swift in Sources */,
@@ -379,7 +391,7 @@
 				27AE51722B27BEEF004DC3DA /* MapView.swift in Sources */,
 				27AE51572B2798D5004DC3DA /* RatingPicker.swift in Sources */,
 				27AE51792B27D72B004DC3DA /* MapMountainSheetView.swift in Sources */,
-				27FACD442B28E18900CF8141 /* UIImageExtensions.swift in Sources */,
+				27FACD442B28E18900CF8141 /* UIImageExtension.swift in Sources */,
 				27AE51452B273F18004DC3DA /* TripRating.swift in Sources */,
 				27AE513D2B2732B1004DC3DA /* Trip.swift in Sources */,
 				27AE51362B2730D4004DC3DA /* AddTripView.swift in Sources */,

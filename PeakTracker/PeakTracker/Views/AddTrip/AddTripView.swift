@@ -14,6 +14,7 @@ struct AddTripView: View {
     @State private var viewModel: ViewModel
     var body: some View {
         Form {
+            // MOUNTAIN SECTION
             Section("Mountain") {
                 NavigationLink {
                     SearchView(mountain: $viewModel.mountain)
@@ -26,34 +27,39 @@ struct AddTripView: View {
                     Text("Add Mountain")
                         .frame(maxWidth: .infinity)
                 }
-            }
-            }
+            }}
             
+            // PHOTO PICKER AND SELECTED IMAGES
             Section("Photos") {
                 PhotosPicker("Select Images", selection: $viewModel.selectedItems, matching: .any(of: [.images, .not(.videos)]))
                     .modifier(CenterModifier())
-                displayImages()
+                displayImages() // displays images if they are selected, provides delete button
             }
             .listRowSeparator(.hidden)
-
             
+            // STARTING POINT
             Section("Starting point") {
                 TextField("Where did you start?", text: $viewModel.startingPoint)
             }
             
+            // DATE AND SEASON
             DateAndSeasonPicker(date: $viewModel.date, season: $viewModel.season)
             
+            // HIKE DURATION
             Section("Hike Duration") {
                 TimePicker(duration: $viewModel.time)
             }
             
+            // HIKING BUDDIES
             Section("Hiking Buddies") {
+                // ALready added hiking buddies
                 List{
                     ForEach($viewModel.hikingBuddies, id: \.self) { $buddy in
                         Text(buddy)
                     }
                     .onDelete(perform: viewModel.deleteHikingBuddy)
                 }
+                // Textfield to add another one
                 HStack {
                     TextField("Who did you go with?", text: $viewModel.newBuddy)
                         .disableAutocorrection(true)
@@ -61,10 +67,13 @@ struct AddTripView: View {
                     Button("Add", action: viewModel.addHikingBuddy)
                 }
             }
+            
+            // HIKE DETAILS
             Section("Details") {
                 TextField("Anything to add?", text: $viewModel.details)
             }
             
+            // TRAILING PICKERS
             WeatherPicker(weather: $viewModel.weather)
             
             DifficultyPicker(difficulty: $viewModel.difficulty)
@@ -74,17 +83,17 @@ struct AddTripView: View {
         }
         .navigationBarBackButtonHidden()
         .navigationBarItems(leading:
-                                Button {
-            viewModel.restore()
+                                // CANCEL BUTTON
+                            Button {
+            viewModel.restore() // ensures restore to default new trip values
             self.presentationMode.wrappedValue.dismiss()
-            
         } label: {
             Text("Cancel")
         })
         .navigationBarItems(trailing:
-                                Button {
+                                // SAVE BUTTON
+                            Button {
             viewModel.save()
-            
         } label: {
             Text("Save")
         })
@@ -92,10 +101,12 @@ struct AddTripView: View {
             viewModel.getAlert()
         }
         .onChange(of: viewModel.selectedItems) {
-            Task {await viewModel.reloadImages()
+            Task {
+                await viewModel.reloadImages()
             }
         }
         .onChange(of: viewModel.goBack) {
+            // ENSURES AUTOMATIC RETURN TO PREVIOUS VIEW UPON SAVING
             if viewModel.goBack {
                 viewModel.restore()
                 self.presentationMode.wrappedValue.dismiss()
@@ -107,8 +118,10 @@ struct AddTripView: View {
         Group {
             if !viewModel.selectedImages.isEmpty {
                 VStack {
+                    // TABVIEW
                     Group {
                         if viewModel.fetchingImages {
+                            // ensures that the images are only revealed after they are ALL loaded from PhotosPicker
                             ProgressView()
                                 .progressViewStyle(.circular)
                                 .frame(width: 300, height: 370)
@@ -118,6 +131,7 @@ struct AddTripView: View {
                             ImageSliderView(images: viewModel.selectedImages)
                         }
                     }
+                    // DELETE BUTTON
                     Button {
                         viewModel.deleteImages()
                     } label: {
@@ -128,7 +142,7 @@ struct AddTripView: View {
         }
     }
     
-
+    
     init(modelContext: ModelContext) {
         let viewModel = ViewModel(modelContext: modelContext)
         _viewModel = State(initialValue: viewModel)

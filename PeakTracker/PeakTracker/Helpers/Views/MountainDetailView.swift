@@ -11,34 +11,21 @@ import SwiftData
 struct MountainDetailView: View {
     var mountain: Mountain
     
-    func mainView() -> some View {
+    var body: some View {
         HStack {
             Text(mountain.name)
             Text(flag(country: mountain.country))
         }
     }
-    
-    var body: some View {
-        mainView()
-    }
-    
-    func flag(country:String) -> String {
-        let base : UInt32 = 127397
-        var s = ""
-        for v in country.unicodeScalars {
-            s.unicodeScalars.append(UnicodeScalar(base + v.value)!)
-        }
-        return String(s)
-    }
 }
 
 #Preview {
-     do {
-         let config = ModelConfiguration(for: Mountain.self, isStoredInMemoryOnly: true)
-         let container = try ModelContainer(for: Mountain.self, configurations: config)
-         return MountainDetailView(mountain: Mountain.mountainMock1)
-             .modelContainer(container)
-     } catch {
-         fatalError("Failed to create model container.")
-     }
+    do {
+        let config = ModelConfiguration(for: Mountain.self, isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Mountain.self, configurations: config)
+        return MountainDetailView(mountain: Mountain.mountainMock1)
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create model container.")
+    }
 }

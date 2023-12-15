@@ -10,20 +10,21 @@ import SwiftUI
 
 extension UIImage {
     func resizeImage(maxHeightOrWidth: CGFloat) -> UIImage {
+        // GET THE SIZES
         let width = self.size.width * self.scale
-        //print("original width: " + String(Float(width)))
         let height = self.size.height * self.scale
-        //print("original height: " + String(Float(height)))
+
+        // GET THE MAX
         let max = max(width, height)
-        //print("maximum: " + String(Float(max)))
         if (max <= maxHeightOrWidth) {
             return self
         }
+        // RESCALE
         let scale = maxHeightOrWidth / max
         let newWidth = width * scale
-        //print("new width: " + String(Float(newWidth)))
         let newHeight = height * scale
-        //print("new height: " + String(Float(newHeight)))
+
+        // REDRAW
         UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
         self.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()

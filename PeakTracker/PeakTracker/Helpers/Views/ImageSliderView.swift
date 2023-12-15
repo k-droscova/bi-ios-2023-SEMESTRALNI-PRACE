@@ -12,19 +12,13 @@ struct ImageSliderView: View {
     var images: [Data]
     init(images: [Data]) {
         self.images = images
+        // Changes the TabView page indicator to pink
         UIPageControl.appearance().currentPageIndicatorTintColor = .red
         UIPageControl.appearance().pageIndicatorTintColor = UIColor.red.withAlphaComponent(0.2)
     }
     func createImage(_ value: Data) -> Image {
-#if canImport(UIKit)
-        let songArtwork: UIImage = UIImage(data: value) ?? UIImage()
-        return Image(uiImage: songArtwork)
-#elseif canImport(AppKit)
-        let songArtwork: NSImage = NSImage(data: value) ?? NSImage()
-        return Image(nsImage: songArtwork)
-#else
-        return Image(systemImage: "some_default")
-#endif
+        let img: UIImage = UIImage(data: value) ?? UIImage()
+        return Image(uiImage: img)
     }
     var body: some View {
         if images.isEmpty {
@@ -54,9 +48,8 @@ struct ImageSliderView: View {
 
 #Preview {
     do {
-        let config1 = ModelConfiguration(for: Trip.self)
-        let config2 = ModelConfiguration(for: Mountain.self)
-        let container = try ModelContainer(for: Trip.self, Mountain.self, configurations: config1, config2)
+        let config = ModelConfiguration(for: Trip.self, isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Trip.self, configurations: config)
         return  ImageSliderView(images: Trip.tripMock1.images)
             .modelContainer(container)
     } catch {

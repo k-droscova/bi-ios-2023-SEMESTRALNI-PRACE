@@ -18,7 +18,6 @@ struct WeatherPicker: View {
                     ForEach(Weather.allCases, id: \.self) {
                         weather in
                         weather.getImage()
-                            .tint(.pink)
                             .tag(weather as Weather?)
                     }
                 }

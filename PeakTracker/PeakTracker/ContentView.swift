@@ -28,21 +28,22 @@ struct ContentView: View {
                     )
                 }
         }
+        // THIS ON APPEAR CLOSURE CAN BE USED FOR RESETING DATA AFTER CRASHES
         /*.onAppear(perform: {
-            try? modelContext.delete(model: Trip.self)
-            try? modelContext.delete(model: Mountain.self)
-        })*/
+         try? modelContext.delete(model: Trip.self)
+         try? modelContext.delete(model: Mountain.self)
+         })*/
     }
-
+    
 }
 
- #Preview {
-     do {
-         let config = ModelConfiguration(for: Trip.self, isStoredInMemoryOnly: true)
-         let container = try ModelContainer(for: Trip.self, configurations: config)
-         return ContentView()
-                    .modelContainer(container)
-     } catch {
-         fatalError("Failed to create model container.")
-     }
- }
+#Preview {
+    do {
+        let config = ModelConfiguration(for: Trip.self, isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Trip.self, configurations: config)
+        return ContentView()
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create model container.")
+    }
+}

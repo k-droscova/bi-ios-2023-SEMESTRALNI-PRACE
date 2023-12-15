@@ -13,39 +13,38 @@ extension SearchView {
         struct Response: Decodable {
             var results: [Mountain] = []
         }
-        var searchBarInput: String = ""
-        var searchString: String = ""
-        var searchResult: Response = .init()
-        var searchPerfomed: Bool = false
-        var isLoading: Bool = false
-        var noResults: Bool = false
+        var searchBarInput: String = "" // takes input from user
+        var searchString: String = "" // the string that is sent to api
+        var searchResult: Response = .init() // loads results from api
+        var isFetching: Bool = false // to show progressView while fetching results
+        var noResults: Bool = false // to show that there were no results for that specific search request
         
-        func reset() {
+        private func clearSearchBar() {
             searchString = searchBarInput
             searchBarInput = ""
         }
         
-        func performSearch() {
-            self.reset()
+        private func startSearch() {
             noResults = false
-            searchPerfomed = true
-            isLoading = true
+            isFetching = true
+        }
+        
+        func performSearch() {
+            self.clearSearchBar()
+            self.startSearch() // sets the property flags accordingly
             Task {
                 @MainActor in
-                
                 do {
                     let request = URLRequest(url: URL(string: "https://geocoding-api.open-meteo.com/v1/search?name=" + searchString)!)
                     let (data, _) = try await URLSession.shared.data(for: request)
                     do {
                         let results = try JSONDecoder().decode(Response.self, from: data)
                         self.searchResult.results = results.results.filter { $0.label == "MT" }
-                        //self.searchResult.results = Array(Set(self.searchResult.results))
-
                     } catch {
                         print("No results")
                         noResults = true
                     }
-                    isLoading = false
+                    isFetching = false
                 } catch {
                     print("[ERROR] Posts fetch error ", error)
                 }

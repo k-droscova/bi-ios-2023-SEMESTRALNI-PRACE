@@ -55,7 +55,6 @@ extension EditTripView {
             self.difficulty = trip.difficulty
             self.rating = trip.rating
             self.selectedImages = trip.images
-            // TODO make selected items represent selected images in photosPicker
         }
         
         func deleteImages() {
@@ -65,7 +64,7 @@ extension EditTripView {
         func reloadImages() async {
             self.deleteImages()
             
-            fetchingImages = true
+            fetchingImages = true // set flag for progress view
             for item in selectedItems {
                 if let image = try? await item.loadTransferable(type: Data.self) {
                     let uiImage = UIImage(data: image)
@@ -74,12 +73,12 @@ extension EditTripView {
                     selectedImages.append(image!)
                 }
             }
-            fetchingImages = false
+            fetchingImages = false // set flag to display images
         }
         
         func addHikingBuddy() {
+            // only perform add if new hiking buddy is not empty
             guard newBuddy.isEmpty == false else { return }
-            
             withAnimation {
                 hikingBuddies.append(newBuddy)
                 newBuddy = ""
@@ -92,13 +91,14 @@ extension EditTripView {
             }
         }
         
-        
-        func validateInputs() -> Bool {
+        // validates that all necessary properties are set
+        private func validateInputs() -> Bool {
             return mountain != nil && weather != nil && season != nil && difficulty != nil && rating != nil
         }
         
         func save() {
             if validateInputs() {
+                // Force unwrapping is OK here since inputs are already validated
                     trip.date = date
                     trip.time = time
                     trip.startingPoint = startingPoint
@@ -109,13 +109,14 @@ extension EditTripView {
                     trip.difficulty = difficulty!
                     trip.rating = rating!
                     trip.images = selectedImages
-                    goBack = true
+                    goBack = true // set flag to return to previous view
             }
             else {
                 errorWithSaving = true
             }
         }
         
+        // displays appropriate alert depending on what property was not set
         func getAlert() -> Alert {
             if mountain == nil {
                 return Alert(

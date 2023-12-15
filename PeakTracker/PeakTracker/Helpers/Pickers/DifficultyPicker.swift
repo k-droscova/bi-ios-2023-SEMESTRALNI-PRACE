@@ -14,20 +14,20 @@ struct DifficultyPicker: View {
     let hardcore: String = "🥵"
     
     var body: some View {
-            Section("How difficult was the trip?") {
-                HStack {
-                    Text(easy)
-                    Picker("", selection: $difficulty) {
-                        ForEach(TripDifficulty.allCases, id: \.self) {
-                            difficulty in
-                            Text(String(difficulty.getNumerical()))
-                                .tag(difficulty as TripDifficulty?)
-                        }
+        Section("How difficult was the trip?") {
+            HStack {
+                Text(easy)
+                Picker("", selection: $difficulty) {
+                    ForEach(TripDifficulty.allCases, id: \.self) {
+                        difficulty in
+                        Text(String(difficulty.getNumerical()))
+                            .tag(difficulty as TripDifficulty?)
                     }
-                    .pickerStyle(.segmented)
-                    Text(hardcore)
                 }
+                .pickerStyle(.segmented)
+                Text(hardcore)
             }
+        }
         
     }
 }

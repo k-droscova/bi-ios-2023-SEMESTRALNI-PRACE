@@ -19,8 +19,10 @@ struct TimePicker: View {
     private let spacing: CGFloat = 16
     
     var body: some View {
+        // GEOMETRY READER ENABLES PROPER LAYOUT WITHIN THE FORM SECTION
         GeometryReader { geometry in
             HStack(spacing: spacing) {
+                // PICKER FOR HOURS
                 Picker(selection: $duration.hourSelection, label: Text("Hours")) {
                     ForEach(hours, id: \.self) { value in
                         Text("\(value) hr")
@@ -29,6 +31,8 @@ struct TimePicker: View {
                 }
                 .pickerStyle(.menu)
                 .frame(width: (geometry.size.width-spacing) / 2, alignment: .leading)
+                
+                // PICKER FOR MINUTES
                 Picker(selection: $duration.minuteSelection, label: Text("Minutes")) {
                     ForEach(minutes, id: \.self) { value in
                         Text("\(value) min")

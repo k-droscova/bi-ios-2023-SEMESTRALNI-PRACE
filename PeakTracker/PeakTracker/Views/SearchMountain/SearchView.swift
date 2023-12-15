@@ -10,23 +10,23 @@ import SwiftData
 
 struct SearchView: View {
     @Environment(\.presentationMode) var presentationMode
-    @Binding var mountain: Mountain?
+    @Binding var mountain: Mountain? // binding to trip's mountain from AddTripView
     @State private var viewModel: ViewModel = ViewModel()
     
     
     var body: some View {
         VStack(alignment: .center) {
             searchBar()
-            .offset(x: 0, y: 0)
-            .padding(.horizontal, 24)
+                .offset(x: 0, y: 0)
+                .padding(.horizontal, 24)
             
             Spacer()
             
             searchResults()
-            .frame(maxWidth: .infinity)
-            .background(ignoresSafeAreaEdges: .horizontal)
-            .listRowSeparator(.visible)
-            .listRowInsets(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
+                .frame(maxWidth: .infinity)
+                .background(ignoresSafeAreaEdges: .horizontal)
+                .listRowSeparator(.visible)
+                .listRowInsets(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
         }
         
     }
@@ -37,7 +37,6 @@ struct SearchView: View {
                 "Start typing",
                 text: $viewModel.searchBarInput,
                 onCommit: {
-                    viewModel.reset()
                     viewModel.performSearch()
                 }
             )
@@ -51,12 +50,12 @@ struct SearchView: View {
     
     private func searchResults() -> some View {
         List {
-            if viewModel.isLoading {
+            if viewModel.isFetching {
                 ProgressView()
                     .progressViewStyle(.circular)
                     .modifier(CenterModifier())
             }
-            else if (viewModel.noResults) {
+            else if viewModel.noResults {
                 Text("No results")
                     .font(.callout)
                     .frame(maxWidth: .infinity)
@@ -67,10 +66,11 @@ struct SearchView: View {
                 ForEach(viewModel.searchResult.results, id: \.self) {
                     result in
                     MountainSearchResultView(mountain: result)
-                        .onTapGesture(perform:
-                                        {mountain = result
-                            self.presentationMode.wrappedValue.dismiss()
-                        }
+                        .onTapGesture(
+                            perform: {
+                                mountain = result // chooses that mountain for the trip
+                                self.presentationMode.wrappedValue.dismiss() // returns to AddTripView
+                            }
                         )
                         .scaledToFit()
                 }

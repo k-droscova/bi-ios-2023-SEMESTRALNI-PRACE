@@ -16,7 +16,7 @@ extension AddTripView {
     class ViewModel {
         var modelContext: ModelContext
         
-        // INITIALIZE VARIABLES FOR TRIP FOR EDITING + SAVING
+        // INITIALIZE VARIABLES FOR TRIP FOR ADING NEW TRIP
         var mountain: Mountain? = nil
         var date: Date = .now
         var time: TripDuration = TripDuration.init()
@@ -45,7 +45,7 @@ extension AddTripView {
         
         init(modelContext: ModelContext) {
             self.modelContext = modelContext
-            self.restore()
+            self.restore() // restores to default values when initialized, this solved problem that for some reason the viewModel kept information from previous Trip that was added
         }
         
         private func calculateSeason() -> Season {
@@ -149,6 +149,7 @@ extension AddTripView {
             self.errorWithSaving = false
             self.goBack = false
         }
+        
         
         func getAlert() -> Alert {
             if mountain == nil {

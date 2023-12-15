@@ -25,7 +25,7 @@ final class Trip: Identifiable, Hashable {
     var season: Season
     var difficulty: TripDifficulty
     var rating: TripRating
-    @Attribute(.externalStorage) var images: [Data] = []
+    @Attribute(.externalStorage) var images: [Data] = [] // this ONLY suggests to SwiftData that it might be better to store it outside of SQLite database
     
     init(mountain: Mountain? = nil, date: Date, time: TripDuration, startingPoint: String, maxHeight: Float, hikingBuddies: [String], details: String, weather: Weather, season: Season, difficulty: TripDifficulty, rating: TripRating, images: [Data] = []) {
         self.id = UUID()

@@ -26,6 +26,6 @@ enum TripDifficulty: Codable, CaseIterable {
             return 6
         }
     }
-
+    
     
 }

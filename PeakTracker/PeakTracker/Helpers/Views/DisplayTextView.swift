@@ -16,20 +16,16 @@ struct DisplayTextView: View {
             VStack(alignment: .center, spacing: 2) {
                 Text(title)
                     .font(.caption)
-                
                 Text(content)
                     .padding(.horizontal)
-                
             }
         }
         else {
             VStack(alignment: .leading, spacing: 2) {
                 Text(title)
                     .font(.caption)
-                
                 Text(content)
                     .padding(.horizontal)
-                
             }
         }
     }
