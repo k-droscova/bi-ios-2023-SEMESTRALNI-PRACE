@@ -11,35 +11,37 @@ import _MapKit_SwiftUI
 
 struct MapView: View {
     @State private var viewModel: ViewModel
-    @State private var position: MapCameraPosition = .userLocation(fallback: .automatic)
+    
+    var body: some View {
+        Map(initialPosition: viewModel.initialPosition, selection: $viewModel.selection) {
+            // fills mountains with mountain markers
+            ForEach(viewModel.mountains) { mountain in
+                Marker(mountain.name, systemImage: "mountain.2.fill", coordinate: mountain.coordinates)
+            }
+        }
+        .onChange(of: viewModel.selection) {
+            viewModel.presentMountainTrips() // sets flag to show mountain sheet that corresponds to selection to true
+        }
+        .sheet(isPresented: $viewModel.isMountainSheetPresented, onDismiss: {
+            viewModel.dismissMountainSheet()
+        }, content: {
+            presentMountainDetails()
+        })
+        .onAppear{
+            viewModel.reload() // reloads data
+        }
+        .mapStyle(.hybrid) // hybrid style looks best for terrain :)
+    }
     
     init(modelContext: ModelContext) {
         let viewModel = ViewModel(modelContext: modelContext)
         _viewModel = State(initialValue: viewModel)
     }
     
-    var body: some View {
-        Map(initialPosition: viewModel.initialPosition, selection: $viewModel.selection) {
-            ForEach(viewModel.mountains) { mountain in
-                Marker(mountain.name, systemImage: "mountain.2.fill", coordinate: mountain.coordinates)
-            }
-        }
-        .sheet(isPresented: $viewModel.isPresented, onDismiss:
-                {
-            viewModel.dismiss()
-        }, content: {
-            presentMountainDetails()
-        })
-        .onChange(of: viewModel.selection) {
-            viewModel.present()
-        }
-        .onAppear{viewModel.fetchData()}
-        .mapStyle(.hybrid)
-    }
-    
     
     func presentMountainDetails() -> some View {
         Group {
+            // show MapMountainSheetView of mountain that corresponds to selection
             if let mountain = viewModel.mountains.first(where: { $0.id == viewModel.selection })
             {
                 MapMountainSheetView(modelContext: viewModel.modelContext, mountain: mountain)
@@ -49,10 +51,11 @@ struct MapView: View {
                     })
             }
             else {
+                // this actually shouldn't occurr, but if it does then selection should be nullified by viewModel
                 VStack{}
                     .onAppear(perform: {
                         viewModel.reload()
-                        viewModel.dismiss()
+                        viewModel.dismissMountainSheet()
                     })
             }
         }
@@ -60,13 +63,13 @@ struct MapView: View {
 }
 
 
- #Preview {
-     do {
-         let config = ModelConfiguration(for: Trip.self, isStoredInMemoryOnly: true)
-         let container = try ModelContainer(for: Trip.self, configurations: config)
-         return MapView(modelContext: container.mainContext)
-     } catch {
-         fatalError("Failed to create model container.")
-     }
- }
- 
+#Preview {
+    do {
+        let config = ModelConfiguration(for: Trip.self, isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Trip.self, configurations: config)
+        return MapView(modelContext: container.mainContext)
+    } catch {
+        fatalError("Failed to create model container.")
+    }
+}
+

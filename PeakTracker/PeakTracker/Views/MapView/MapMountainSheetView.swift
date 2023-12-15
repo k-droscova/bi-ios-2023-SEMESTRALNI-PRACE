@@ -9,8 +9,8 @@ import SwiftUI
 import SwiftData
 
 struct MapMountainSheetView: View {
-    @Environment (\.dismiss) var dismiss
-    let mountain: Mountain
+    @Environment (\.dismiss) var dismiss // this is used to dismiss sheet automatically if last trip for this mountain is deleted
+    let mountain: Mountain // to show MountainDetailView at the top
     @State private var viewModel: ViewModel
     
     init(modelContext: ModelContext, mountain: Mountain) {

@@ -30,14 +30,15 @@ extension MapView {
         )
         var initialPosition: MapCameraPosition = .automatic
         var selection: String?
-        var isPresented: Bool = false
+        var isMountainSheetPresented: Bool = false
         var modelContext: ModelContext
         var trips = [Trip]()
         var mountains = [Mountain]()
         
         init(modelContext: ModelContext) {
             self.modelContext = modelContext
-            fetchData()
+            self.reload() // fetch data
+            // if there are trips then set the position to the first mountain it fetches from database
             if let coordinates = trips.first?.mountain?.coordinates {
                 let region = MKCoordinateRegion(
                     center: coordinates,
@@ -48,35 +49,35 @@ extension MapView {
                 )
                 self.initialPosition = .region(region)
             }
+            // else we initialize map position to initialEmptyPosition
             else {
                 self.initialPosition = initialEmptyPosition
             }
         }
         
-        func dismiss() {
-            isPresented = false
+        func dismissMountainSheet() {
+            isMountainSheetPresented = false
             selection = nil
-            try? modelContext.save()
+        }
+        
+        func presentMountainTrips() {
+            // ensure selection is not nil
+            guard let selection else {
+                isMountainSheetPresented = false
+                return }
+            // ensure that selection matches mountain in database
+            guard mountains.first(where: { $0.id == selection }) != nil else {
+                isMountainSheetPresented = false
+                return }
+            // present sheet
+            isMountainSheetPresented = true
         }
         
         func reload() {
-            try? modelContext.save()
             self.fetchData()
-
         }
         
-        func present() {
-            self.fetchData()
-            guard let selection else {
-                isPresented = false
-                return }
-            guard mountains.first(where: { $0.id == selection }) != nil else {
-                isPresented = false
-                return }
-            isPresented = true
-        }
-        
-        func fetchData() {
+        private func fetchData() {
             do {
                 trips = try modelContext.fetch(FetchDescriptor<Trip>()).filter(#Predicate<Trip> { trip in
                     trip.mountain != nil

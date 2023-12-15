@@ -39,7 +39,7 @@ extension MapMountainSheetView {
             }
         }
         
-        // ensures 
+        // ensures that upon return from MountainDetailView everything is set to initial state
         func reset() {
             self.selection = nil
             self.dismiss = false
