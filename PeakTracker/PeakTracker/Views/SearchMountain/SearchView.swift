@@ -13,7 +13,6 @@ struct SearchView: View {
     @Binding var mountain: Mountain? // binding to trip's mountain from AddTripView
     @State private var viewModel: ViewModel = ViewModel()
     
-    
     var body: some View {
         VStack(alignment: .center) {
             searchBar()

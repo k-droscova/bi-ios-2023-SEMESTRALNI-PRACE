@@ -12,6 +12,12 @@ import PhotosUI
 struct EditTripView: View {
     @Environment (\.presentationMode) var presentationMode
     @State private var viewModel: ViewModel
+    
+    init(trip: Trip, modelContext: ModelContext) {
+        let viewModel = ViewModel(trip: trip, modelContext: modelContext)
+        _viewModel = State(initialValue: viewModel)
+    }
+    
     var body: some View {
         Form {
             // PHOTOS PICKER AND IMAGES
@@ -69,20 +75,19 @@ struct EditTripView: View {
         .navigationTitle("Edit Trip")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden()
-        .navigationBarItems(leading:
-                                // CANCEL BUTTON
-                            Button {
-            self.presentationMode.wrappedValue.dismiss()
-        } label: {
-            Text("Cancel")
-        })
-        .navigationBarItems(trailing:
-                                // SAVING BUTTON
-                            Button {
-            viewModel.save()
-        } label: {
-            Text("Save")
-        })
+        .navigationBarItems(
+            leading: Button {
+                viewModel.restore()
+                self.presentationMode.wrappedValue.dismiss()
+            } label: {
+                Text("Cancel")
+            })
+        .navigationBarItems(
+            trailing: Button {
+                viewModel.save()
+            } label: {
+                Text("Save")
+            })
         .alert(isPresented: $viewModel.errorWithSaving) {
             viewModel.getAlert()
         }
@@ -124,11 +129,6 @@ struct EditTripView: View {
                 }
             }
         }
-    }
-    
-    init(trip: Trip, modelContext: ModelContext) {
-        let viewModel = ViewModel(trip: trip, modelContext: modelContext)
-        _viewModel = State(initialValue: viewModel)
     }
 }
 

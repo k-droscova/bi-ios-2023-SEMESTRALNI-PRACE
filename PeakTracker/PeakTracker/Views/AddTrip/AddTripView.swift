@@ -12,6 +12,12 @@ import PhotosUI
 struct AddTripView: View {
     @Environment (\.presentationMode) var presentationMode
     @State private var viewModel: ViewModel
+    
+    init(modelContext: ModelContext) {
+        let viewModel = ViewModel(modelContext: modelContext)
+        _viewModel = State(initialValue: viewModel)
+    }
+    
     var body: some View {
         Form {
             // MOUNTAIN SECTION
@@ -140,12 +146,6 @@ struct AddTripView: View {
                 }
             }
         }
-    }
-    
-    
-    init(modelContext: ModelContext) {
-        let viewModel = ViewModel(modelContext: modelContext)
-        _viewModel = State(initialValue: viewModel)
     }
 }
 

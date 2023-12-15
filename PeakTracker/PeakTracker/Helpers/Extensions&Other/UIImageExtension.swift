@@ -13,7 +13,7 @@ extension UIImage {
         // GET THE SIZES
         let width = self.size.width * self.scale
         let height = self.size.height * self.scale
-
+        
         // GET THE MAX
         let max = max(width, height)
         if (max <= maxHeightOrWidth) {
@@ -23,7 +23,7 @@ extension UIImage {
         let scale = maxHeightOrWidth / max
         let newWidth = width * scale
         let newHeight = height * scale
-
+        
         // REDRAW
         UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
         self.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))

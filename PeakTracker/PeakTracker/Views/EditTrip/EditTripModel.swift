@@ -57,6 +57,24 @@ extension EditTripView {
             self.selectedImages = trip.images
         }
         
+        // this is used to restore after cancelation
+        func restore() {
+            self.trip = trip
+            self.modelContext = modelContext
+            self.date = trip.date
+            self.mountain = trip.mountain
+            self.startingPoint = trip.startingPoint
+            self.maxHeight = trip.maxHeight
+            self.hikingBuddies = trip.hikingBuddies
+            self.details = trip.details
+            self.weather = trip.weather
+            self.season = trip.season
+            self.difficulty = trip.difficulty
+            self.rating = trip.rating
+            self.selectedImages = trip.images
+            self.selectedItems = []
+        }
+        
         func deleteImages() {
             selectedImages.removeAll()
         }
@@ -99,17 +117,17 @@ extension EditTripView {
         func save() {
             if validateInputs() {
                 // Force unwrapping is OK here since inputs are already validated
-                    trip.date = date
-                    trip.time = time
-                    trip.startingPoint = startingPoint
-                    trip.hikingBuddies = hikingBuddies
-                    trip.details = details
-                    trip.weather = weather!
-                    trip.season = season!
-                    trip.difficulty = difficulty!
-                    trip.rating = rating!
-                    trip.images = selectedImages
-                    goBack = true // set flag to return to previous view
+                trip.date = date
+                trip.time = time
+                trip.startingPoint = startingPoint
+                trip.hikingBuddies = hikingBuddies
+                trip.details = details
+                trip.weather = weather!
+                trip.season = season!
+                trip.difficulty = difficulty!
+                trip.rating = rating!
+                trip.images = selectedImages
+                goBack = true // set flag to return to previous view
             }
             else {
                 errorWithSaving = true
@@ -124,8 +142,8 @@ extension EditTripView {
                     message: Text("Must select mountain"),
                     dismissButton:  Alert.Button.default(Text("OK"), action: {
                         self.errorWithSaving = false
-                     })
-                 )
+                    })
+                )
             }
             else if weather == nil {
                 return Alert(
@@ -133,8 +151,8 @@ extension EditTripView {
                     message: Text("Must select weather"),
                     dismissButton:  Alert.Button.default(Text("OK"), action: {
                         self.errorWithSaving = false
-                     })
-                 )
+                    })
+                )
             }
             else if season == nil {
                 return Alert(
@@ -142,8 +160,8 @@ extension EditTripView {
                     message: Text("Must select season"),
                     dismissButton:  Alert.Button.default(Text("OK"), action: {
                         self.errorWithSaving = false
-                     })
-                 )
+                    })
+                )
             }
             else if difficulty == nil {
                 return Alert(
@@ -151,8 +169,8 @@ extension EditTripView {
                     message: Text("Must select difficulty"),
                     dismissButton:  Alert.Button.default(Text("OK"), action: {
                         self.errorWithSaving = false
-                     })
-                 )
+                    })
+                )
             }
             else {
                 return Alert(
@@ -160,8 +178,8 @@ extension EditTripView {
                     message: Text("Must select rating"),
                     dismissButton:  Alert.Button.default(Text("OK"), action: {
                         self.errorWithSaving = false
-                     })
-                 )
+                    })
+                )
             }
         }
         

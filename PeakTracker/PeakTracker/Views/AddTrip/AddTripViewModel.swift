@@ -9,7 +9,6 @@ import Foundation
 import SwiftData
 import SwiftUI
 import PhotosUI
-//import _PhotosUI_SwiftUI
 
 extension AddTripView {
     @Observable

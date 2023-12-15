@@ -12,6 +12,11 @@ import _MapKit_SwiftUI
 struct MapView: View {
     @State private var viewModel: ViewModel
     
+    init(modelContext: ModelContext) {
+        let viewModel = ViewModel(modelContext: modelContext)
+        _viewModel = State(initialValue: viewModel)
+    }
+    
     var body: some View {
         Map(initialPosition: viewModel.initialPosition, selection: $viewModel.selection) {
             // fills mountains with mountain markers
@@ -32,12 +37,6 @@ struct MapView: View {
         }
         .mapStyle(.hybrid) // hybrid style looks best for terrain :)
     }
-    
-    init(modelContext: ModelContext) {
-        let viewModel = ViewModel(modelContext: modelContext)
-        _viewModel = State(initialValue: viewModel)
-    }
-    
     
     func presentMountainDetails() -> some View {
         Group {

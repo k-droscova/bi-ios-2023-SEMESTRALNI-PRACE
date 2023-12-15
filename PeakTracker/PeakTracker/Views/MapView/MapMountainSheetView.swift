@@ -19,7 +19,6 @@ struct MapMountainSheetView: View {
         _viewModel = State(initialValue: viewModel)
     }
     
-    
     var body: some View {
         // TOP LINE
         MountainDetailView(mountain: mountain)
@@ -48,15 +47,15 @@ struct MapMountainSheetView: View {
     }
 }
 
- #Preview {
-     do {
-         let config = ModelConfiguration(for: Trip.self, isStoredInMemoryOnly: true)
-         let container = try ModelContainer(for: Trip.self, configurations: config)
-         let modelContext = container.mainContext
-         modelContext.insert(Trip.tripMock1)
-         return MapMountainSheetView(modelContext: modelContext, mountain: Mountain.mountainMock1)
-     } catch {
-         fatalError("Failed to create model container.")
-     }
- }
- 
+#Preview {
+    do {
+        let config = ModelConfiguration(for: Trip.self, isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Trip.self, configurations: config)
+        let modelContext = container.mainContext
+        modelContext.insert(Trip.tripMock1)
+        return MapMountainSheetView(modelContext: modelContext, mountain: Mountain.mountainMock1)
+    } catch {
+        fatalError("Failed to create model container.")
+    }
+}
+

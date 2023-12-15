@@ -13,9 +13,9 @@ import MapKit
 @Model
 final class Mountain: Identifiable, Decodable, Hashable, Equatable, ObservableObject {
     public func hash(into hasher: inout Hasher) {
-            return hasher.combine(id)
+        return hasher.combine(id)
     }
-        
+    
     public static func == (lhs: Mountain, rhs: Mountain) -> Bool {
         return lhs.id == rhs.id
     }
@@ -39,8 +39,6 @@ final class Mountain: Identifiable, Decodable, Hashable, Equatable, ObservableOb
     var coordinates: CLLocationCoordinate2D {
         CLLocationCoordinate2D(latitude: CLLocationDegrees(self.latitude), longitude: CLLocationDegrees(self.longitude))
     }
-     
-
     
     init(name: String, country: String, label: String, latitude: Float, longitude: Float, elevation: Float) {
         self.id = UUID().uuidString
@@ -67,7 +65,7 @@ final class Mountain: Identifiable, Decodable, Hashable, Equatable, ObservableOb
 
 extension KeyedDecodingContainer {
     func decode<T: Decodable>(forKey key: Key) throws -> T  {
-       try decode(T.self, forKey: key)
+        try decode(T.self, forKey: key)
     }
 }
 

@@ -15,7 +15,7 @@ extension AllTripsView {
     class ViewModel {
         var modelContext: ModelContext
         var searchText: String = ""
-        var sortOrder = SortDescriptor(\Trip.mountain?.name)
+        var sortOrder = SortDescriptor(\Trip.mountain?.name) // by default it sort by mountain name
         var showAlert = false
         
         init(modelContext: ModelContext) {
@@ -45,11 +45,7 @@ extension AllTripsView {
         }
         
         func wantToDelete() {
-            self.showAlert = true
-        }
-        
-        func doNotWantToDelete() {
-            self.showAlert = false
+            self.showAlert = true // sets flag for alert
         }
         
         func deleteAll() {
@@ -65,21 +61,17 @@ extension AllTripsView {
             }
         }
         
-        func reload() {
-            try? modelContext.save()
-        }
-        
         func getAlert() -> Alert {
             return Alert(
                 title: Text("Warning"),
                 message: Text("All data will be lost. Are you sure you want to proceed?"),
                 primaryButton: Alert.Button.cancel(Text("No"), action: {
-                    self.doNotWantToDelete()
+                    self.showAlert = false // dismisses alert without further action
                 }),
                 secondaryButton: Alert.Button.default(Text("Yes"), action: {
-                    self.deleteAll()
-                 })
-             )
+                    self.deleteAll() // deletes all data
+                })
+            )
         }
     }
 }

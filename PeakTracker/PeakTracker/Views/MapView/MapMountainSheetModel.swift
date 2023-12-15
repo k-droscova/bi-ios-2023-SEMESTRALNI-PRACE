@@ -24,13 +24,14 @@ extension MapMountainSheetView {
             fetchData()
         }
         
-        
         func fetchData() {
             do {
+                // get all trips
                 trips = try modelContext.fetch(FetchDescriptor<Trip>()).filter(#Predicate<Trip> { trip in
                     trip.mountain != nil
-                }) // get all trips
-                trips = trips.filter({$0.mountain!.name == self.mountain.name}) // filter trips for current mountain
+                })
+                // filter trips for current mountain
+                trips = trips.filter({$0.mountain!.name == self.mountain.name})
             } catch {
                 print("Fetch failed")
             }
