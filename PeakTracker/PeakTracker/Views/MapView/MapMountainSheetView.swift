@@ -21,8 +21,11 @@ struct MapMountainSheetView: View {
     
     
     var body: some View {
+        // TOP LINE
         MountainDetailView(mountain: mountain)
             .font(.headline)
+        
+        // LIST WITH NAVIGATION TO TRIP DETAIL
         NavigationStack {
             List(selection: $viewModel.selection) {
                 ForEach(viewModel.trips) { trip in
@@ -42,14 +45,6 @@ struct MapMountainSheetView: View {
                 self.dismiss()
             }
         }
-    }
-    
-    func formatDate(date: Date) -> String{
-        let formatter = DateFormatter()
-        formatter.timeStyle = .none
-        formatter.dateStyle = .short
-        formatter.timeZone = TimeZone.current
-        return formatter.string(from: date)
     }
 }
 

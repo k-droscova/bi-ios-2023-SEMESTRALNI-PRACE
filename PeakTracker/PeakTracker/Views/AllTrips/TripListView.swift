@@ -59,13 +59,6 @@ struct TripListView: View {
         }
     }
     
-    func formatDate(date: Date) -> String{
-        let formatter = DateFormatter()
-        formatter.timeStyle = .none
-        formatter.dateStyle = .short
-        formatter.timeZone = TimeZone.current
-        return formatter.string(from: date)
-    }
 }
 
 

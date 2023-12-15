@@ -13,6 +13,7 @@ import _MapKit_SwiftUI
 extension MapView {
     @Observable
     class ViewModel {
+        // initial position if user hasn't logged any trips yet -> userLoacation, fallbacks to Central Europe
         let initialEmptyPosition: MapCameraPosition = .userLocation(
             fallback: .region(
                 MKCoordinateRegion(

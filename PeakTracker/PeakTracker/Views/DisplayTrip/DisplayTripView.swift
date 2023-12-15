@@ -63,14 +63,6 @@ struct DisplayTripView: View {
         return trip.hikingBuddies.joined(separator: ", ")
     }
     
-    func formatDate(date: Date) -> String{
-        let formatter = DateFormatter()
-        formatter.timeStyle = .none
-        formatter.dateStyle = .short
-        formatter.timeZone = TimeZone.current
-        return formatter.string(from: date)
-    }
-    
     func formatTime(time: TripDuration) -> String {
         return String(Int(time.hourSelection)) + " h " + String(Int(time.minuteSelection)) + " min "
     }

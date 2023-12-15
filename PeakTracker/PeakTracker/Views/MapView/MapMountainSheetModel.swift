@@ -29,8 +29,8 @@ extension MapMountainSheetView {
             do {
                 trips = try modelContext.fetch(FetchDescriptor<Trip>()).filter(#Predicate<Trip> { trip in
                     trip.mountain != nil
-                })
-                trips = trips.filter({$0.mountain!.name == self.mountain.name})
+                }) // get all trips
+                trips = trips.filter({$0.mountain!.name == self.mountain.name}) // filter trips for current mountain
             } catch {
                 print("Fetch failed")
             }
@@ -39,6 +39,7 @@ extension MapMountainSheetView {
             }
         }
         
+        // ensures 
         func reset() {
             self.selection = nil
             self.dismiss = false
@@ -47,8 +48,13 @@ extension MapMountainSheetView {
         func deleteTrips(_ indexSet: IndexSet) {
             for index in indexSet {
                 let trip = trips[index]
-                modelContext.delete(trip)
-                try? modelContext.save()
+                modelContext.delete(trip) // remove from database
+                try? modelContext.save() // save changes
+                trips.remove(at: index) // remove from trips
+            }
+            // ensures that when we delete last trip for the mountain then the sheet automatically scrolls down
+            if trips.isEmpty {
+                self.dismiss = true
             }
         }
     }
