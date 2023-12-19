@@ -73,7 +73,7 @@ extension Mountain {
     static let mountainMock1 = Mountain.init(name: "Rysy", country: "PL", label: "MT", latitude: 49.17907, longitude: 20.08842, elevation: 2499)
     static let mountainMock2 = Mountain.init(name: "Východná Vysoká", country: "SK", label: "MT", latitude: 49.17514, longitude: 20.14549, elevation: 2428)
     static let mountainMock3 = Mountain.init(name: "Ostrý Roháč", country: "SK", label: "MT", latitude: 49.20028, longitude: 19.75848, elevation: 2088)
-    static let mountainMock4 = Mountain.init(name: "Sněžka", country: "CZ", label: "MT", latitude: 50.73609, longitude: 15.73979, elevation: 1603)
+    static let mountainMock4 = Mountain.init(name: "Sněžka-Śnieżka", country: "CZ", label: "MT", latitude: 50.73609, longitude: 15.73979, elevation: 1603)
     static let mountainMock5 = Mountain.init(name: "Jahňací štít", country: "SK", label: "MT", latitude: 49.21984, longitude: 20.20828, elevation: 2230)
     static let mountainMock6 = Mountain.init(name: "Baníkov", country: "SK", label: "MT", latitude: 49.19756, longitude: 19.70994, elevation: 2178)
     static let mountainMock7 = Mountain.init(name: "Tri kopy", country: "SK", label: "MT", latitude: 49.19979, longitude: 19.72939, elevation: 2136)

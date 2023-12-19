@@ -58,6 +58,7 @@ extension MapView {
         func dismissMountainSheet() {
             isMountainSheetPresented = false
             selection = nil
+            self.reload()
         }
         
         func presentMountainTrips() {
